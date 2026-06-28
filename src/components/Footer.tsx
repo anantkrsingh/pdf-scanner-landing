@@ -4,7 +4,7 @@ import { Mail } from "lucide-react"
 import { Logo } from "@/components/Logo"
 import { GooglePlayBadge } from "@/components/GooglePlayBadge"
 
-const CONTACT_EMAIL = "contact@tinyur.in"
+const CONTACT_EMAIL = "contactzodlabs@gmail.com"
 
 export function Footer() {
   return (

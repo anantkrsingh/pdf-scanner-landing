@@ -3,7 +3,7 @@ import { ArrowLeft, Mail } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
-const CONTACT_EMAIL = "contact@tinyur.in"
+const CONTACT_EMAIL = "contactzodlabs@gmail.com"
 const LAST_UPDATED = "June 27, 2026"
 
 const sections = [
