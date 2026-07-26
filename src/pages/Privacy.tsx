@@ -11,8 +11,8 @@ const sections = [
     id: "intro",
     title: "1. Introduction",
     body: [
-      "PDF Scanner (“we”, “our”, or “us”) respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains what data we collect, how we use it, and the choices you have when you use our mobile application and related services (the “Service”).",
-      "By using PDF Scanner, you agree to the practices described in this policy. If you do not agree, please discontinue use of the Service.",
+      "Clearscan.ai (“we”, “our”, or “us”) respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains what data we collect, how we use it, and the choices you have when you use our mobile application and related services (the “Service”).",
+      "By using Clearscan.ai, you agree to the practices described in this policy. If you do not agree, please discontinue use of the Service.",
     ],
   },
   {
@@ -58,7 +58,7 @@ const sections = [
     id: "permissions",
     title: "6. Device Permissions",
     body: [
-      "PDF Scanner requests access to your camera (to capture documents) and storage (to import and export files). These permissions are used solely for the features you initiate and can be revoked anytime in your device settings.",
+      "Clearscan.ai requests access to your camera (to capture documents) and storage (to import and export files). These permissions are used solely for the features you initiate and can be revoked anytime in your device settings.",
     ],
   },
   {

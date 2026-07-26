@@ -50,7 +50,7 @@ export function Footer() {
 
       <div className="border-t">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-6 text-sm text-muted-foreground sm:flex-row">
-          <p>© {new Date().getFullYear()} PDF Scanner. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Clearscan.ai. All rights reserved.</p>
           <Link to="/privacy" className="hover:text-primary">
             Privacy Policy
           </Link>

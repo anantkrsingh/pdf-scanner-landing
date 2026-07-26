@@ -10,7 +10,7 @@ export function LogoMark({ className }: { className?: string }) {
       viewBox="0 0 512 512"
       className={cn("size-9", className)}
       role="img"
-      aria-label="PDF Scanner logo"
+      aria-label="Clearscan.ai logo"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
@@ -51,7 +51,7 @@ export function Logo({ className }: { className?: string }) {
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <LogoMark />
       <span className="text-lg font-bold tracking-tight">
-        PDF<span className="text-primary">Scanner</span>
+        Clearscan<span className="text-primary">.ai</span>
       </span>
     </span>
   )
