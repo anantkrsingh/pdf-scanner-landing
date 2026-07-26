@@ -211,10 +211,10 @@ export function Landing() {
             {features.map((f) => (
               <Card
                 key={f.title}
-                className="group transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-brand/5"
+                className="bg-transparent border-black rounded-4xl border hover:border-foreground/40 shadow-none transition-colors cursor-pointer"
               >
-                <CardHeader>
-                  <div className="flex size-12 items-center justify-center rounded-xl bg-gradient-to-b from-brand/15 to-brand/5 text-primary transition-colors group-hover:from-brand group-hover:to-brand-deep group-hover:text-white">
+                <CardHeader className="p-6">
+                  <div className="flex size-12 items-center justify-center rounded-xl bg-gradient-to-b from-brand/15 to-brand/5 text-primary">
                     <f.icon className="size-6" />
                   </div>
                   <CardTitle className="mt-4 text-lg">{f.title}</CardTitle>
@@ -266,47 +266,54 @@ export function Landing() {
             subtitle="Start free. Upgrade only when you need the pro tools."
           />
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
-          {plans.map((plan) => (
-            <Card
-              key={plan.name}
-              className={
-                plan.featured
-                  ? "relative border-primary/40 shadow-xl shadow-brand/10 ring-1 ring-primary/20"
-                  : ""
-              }
-            >
-              {plan.featured && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-brand to-brand-deep px-3 py-1 text-xs font-semibold text-white shadow">
-                  Most popular
-                </span>
-              )}
-              <CardHeader>
-                <CardTitle className="text-xl">{plan.name}</CardTitle>
-                <div className="mt-2 flex items-baseline gap-1">
-                  <span className="text-4xl font-extrabold">{plan.price}</span>
-                  <span className="text-sm text-muted-foreground">
-                    /{plan.period}
+            {plans.map((plan) => (
+              <Card
+                key={plan.name}
+                className={
+                  plan.featured
+                    ? "relative border-primary/40 shadow-xl shadow-brand/10 ring-1 ring-primary/20"
+                    : ""
+                }
+              >
+                {plan.featured && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-brand to-brand-deep px-3 py-1 text-xs font-semibold text-white shadow">
+                    Most popular
                   </span>
-                </div>
-                <CardDescription className="mt-1">{plan.desc}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <ul className="space-y-3">
-                  {plan.features.map((feat) => (
-                    <li key={feat} className="flex items-start gap-2.5 text-sm">
-                      <Check className="mt-0.5 size-4 shrink-0 text-primary" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button variant={plan.variant} className="w-full" size="lg">
-                  {plan.cta}
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+                )}
+                <CardHeader>
+                  <CardTitle className="text-xl">{plan.name}</CardTitle>
+                  <div className="mt-2 flex items-baseline gap-1">
+                    <span className="text-4xl font-extrabold">
+                      {plan.price}
+                    </span>
+                    <span className="text-sm text-muted-foreground">
+                      /{plan.period}
+                    </span>
+                  </div>
+                  <CardDescription className="mt-1">
+                    {plan.desc}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="space-y-3">
+                    {plan.features.map((feat) => (
+                      <li
+                        key={feat}
+                        className="flex items-start gap-2.5 text-sm"
+                      >
+                        <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button variant={plan.variant} className="w-full" size="lg">
+                    {plan.cta}
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
-      </div>
       </section>
 
       {/* ===== FAQ ===== */}
@@ -395,7 +402,7 @@ function DownloadCTA() {
     <section className="mx-auto max-w-6xl px-6 py-24 bg-cream">
       <div
         ref={ref}
-        className="relative overflow-hidden bg-cream px-8 py-16 text-center shadow-2xl shadow-brand/5 will-change-transform sm:px-16 border border-brand/10"
+        className="relative overflow-hidden bg-cream px-8 py-16 text-center will-change-transform sm:px-16 border border-brand/10"
         style={{
           transform: `scale(${scale})`,
           borderRadius: `${radius}px`,

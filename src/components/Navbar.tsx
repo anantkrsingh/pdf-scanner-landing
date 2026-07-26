@@ -35,7 +35,7 @@ export function Navbar() {
 
         {/* Center nav links with pill background */}
         <div className="flex-1 flex justify-center">
-          <div className="flex items-center gap-1 bg-white rounded-full px-3 py-1.5 shadow-lg shadow-black/5 border border-gray-100">
+          <div className="flex items-center gap-1 bg-white rounded-full px-3 py-1.5 shadow-lg shadow-black/5 border border-black">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -75,7 +75,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="mx-auto mt-2 max-w-6xl rounded-2xl border border-gray-100 bg-white p-3 shadow-lg md:hidden">
+        <div className="mx-auto mt-2 max-w-6xl rounded-2xl borde2 border-black bg-white p-3 shadow-lg md:hidden">
           <div className="flex flex-col">
             {navLinks.map((link) => (
               <a
