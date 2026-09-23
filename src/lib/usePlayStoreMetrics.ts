@@ -37,7 +37,7 @@ function formatRatingCount(n: number): string {
 /** Determine the API base URL: same origin in prod, localhost:5174 in dev */
 function apiBase(): string {
   if (typeof window === "undefined") return "";
-  const { protocol, hostname, port } = window.location;
+  const { protocol, hostname } = window.location;
   // Vite dev server runs on 5173/5174; Vercel API isn't available there
   // so we point directly at the deployed function or a local vercel dev server
   if (hostname === "localhost" || hostname === "127.0.0.1") {
