@@ -23,6 +23,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { LogoMark } from "@/components/Logo";
 import { GooglePlayBadge } from "@/components/GooglePlayBadge";
+import { usePlayStoreMetrics } from "@/lib/usePlayStoreMetrics";
 
 const features = [
   {
@@ -142,12 +143,7 @@ const faqs = [
   },
 ];
 
-const stats = [
-  { value: "50M+", label: "Downloads" },
-  { value: "4.8★", label: "Play Store rating" },
-  { value: "60+", label: "OCR languages" },
-  { value: "180+", label: "Countries" },
-];
+
 
 export function Landing() {
   return (
@@ -184,20 +180,7 @@ export function Landing() {
       </section>
 
       {/* ===== Stats ===== */}
-      <section className="border-y bg-cream">
-        <div className="mx-auto max-w-6xl grid grid-cols-2 gap-6 px-6 py-12 md:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="text-3xl font-extrabold text-primary sm:text-4xl">
-                {s.value}
-              </div>
-              <div className="mt-1 text-sm text-muted-foreground">
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <StatsSection />
 
       {/* ===== Features ===== */}
       <section id="features" className="bg-cream py-24">
@@ -427,7 +410,70 @@ function DownloadCTA() {
   );
 }
 
+
+/**
+ * Real-time stats from Google Play Store, fetched via /api/play-metrics.
+ * Falls back to "—" while loading or if the API is unavailable.
+ */
+function StatsSection() {
+  const metrics = usePlayStoreMetrics();
+
+  const stats = [
+    {
+      value: metrics.installs,
+      label: "Downloads",
+      live: true,
+    },
+    {
+      value: metrics.rating,
+      label: "Play Store rating",
+      live: true,
+    },
+    {
+      value: "60+",
+      label: "OCR languages",
+      live: false,
+    },
+    {
+      value: metrics.ratingCount,
+      label: "Reviews",
+      live: true,
+    },
+  ];
+
+  return (
+    <section className="border-y bg-cream">
+      <div className="mx-auto max-w-6xl grid grid-cols-2 gap-6 px-6 py-12 md:grid-cols-4">
+        {stats.map((s) => (
+          <div key={s.label} className="text-center">
+            <div
+              className={[
+                "text-3xl font-extrabold text-primary sm:text-4xl transition-all duration-500",
+                metrics.loading && s.live
+                  ? "animate-pulse opacity-40"
+                  : "opacity-100",
+              ].join(" ")}
+            >
+              {s.value}
+            </div>
+            <div className="mt-1 text-sm text-muted-foreground flex items-center justify-center gap-1">
+              {s.live && !metrics.loading && !metrics.error && (
+                <span
+                  className="inline-block size-1.5 rounded-full bg-green-500"
+                  title="Live data from Google Play"
+                />
+              )}
+              {s.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function SectionHeading({
+
   eyebrow,
   title,
   subtitle,

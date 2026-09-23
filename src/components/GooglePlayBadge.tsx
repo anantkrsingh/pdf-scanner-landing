@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils"
+import { PLAY_STORE_URL } from "@/lib/usePlayStoreMetrics"
 
 /**
- * Official "Get it on Google Play" badge.
- * Swap `href` for the real Play Store listing when available.
+ * Official "Get it on Google Play" badge linking to the real Play Store listing.
  */
 export function GooglePlayBadge({
-  href = "#",
+  href = PLAY_STORE_URL,
   className,
 }: {
   href?: string

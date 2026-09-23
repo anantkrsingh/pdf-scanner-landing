@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/Logo";
+import { PLAY_STORE_URL } from "@/lib/usePlayStoreMetrics";
 
 const navLinks = [
   { label: "Features", href: "/#features" },
@@ -59,7 +60,7 @@ export function Navbar() {
             size="sm"
             asChild
           >
-            <a href="#download">Download</a>
+            <a href={PLAY_STORE_URL} target="_blank" rel="noreferrer">Download</a>
           </Button>
         </div>
 
@@ -93,7 +94,7 @@ export function Navbar() {
               Privacy
             </Link>
             <Button variant="brand" className="mt-2 w-full" asChild>
-              <a href="#download">Download</a>
+              <a href={PLAY_STORE_URL} target="_blank" rel="noreferrer">Download</a>
             </Button>
           </div>
         </div>
