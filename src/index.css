@@ -3,12 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
-  CamScanner-inspired palette:
-  - Brand blue    #1769FF  (primary)
-  - Deep blue     #0B47C2
-  - Accent orange #FF7A1A  (call-to-action highlight)
-*/
+
 
 :root {
   --radius: 0.75rem;
